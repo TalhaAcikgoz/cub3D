@@ -2,19 +2,10 @@
 
 t_main	c;
 
-
-
-
-
-
-
-
-
-
-
 int main(int ac, char **av)
 {
 	getMap(av[1]);
+	game_init(av[1]);
 	c.mlx = mlx_init();
 	c.window = mlx_new_window(c.mlx, WIDTH, HEIGHT, "cube3D");
 	c.img.img = mlx_new_image(c.mlx, WIDTH, HEIGHT);

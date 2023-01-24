@@ -24,15 +24,18 @@ int	render(t_data *img)
 	for (int i=0; c.map[i]; i++) {
 		for (int j=0; c.map[i][j]; j++) {
 			if (c.map[i][j] == '1')
-				draw_square(img, (j * PIXEL), (i * PIXEL), 0x00000000);
+				draw_square(img, (j * PIXEL) + ofset, (i * PIXEL) + ofset, 0x00000000);
 			else if (c.map[i][j] == '0')
-				draw_square(img, (j * PIXEL), (i * PIXEL), 0x00FFFFFF);
+				draw_square(img, (j * PIXEL) + ofset, (i * PIXEL) + ofset, 0x00FFFFFF);
 			else if (c.map[i][j] == 'N')
-				draw_square(img, (j * PIXEL), (i * PIXEL) , 0x00FFFFFF);
+				draw_square(img, (j * PIXEL) + ofset, (i * PIXEL) + ofset, 0x00FFFFFF);
 		}
 	}
-	draw_square(img, c.posP.x * PIXEL, c.posP.y * PIXEL, 0x00DF349B);
-    draw_line(c.mlx, c.window, c.posP.x * PIXEL + (PIXEL / 2), c.posP.y * PIXEL, c.posP.x * PIXEL + (PIXEL / 2), (c.posP.y * PIXEL) - 20, 0x00DF349B);
+	draw_square(img, c.p.pos.x * PIXEL + ofset, c.p.pos.y * PIXEL + ofset, 0x00DF349B);
+    draw_line(c.mlx, c.window,
+			c.p.pos.x * PIXEL + (PIXEL / 2) + ofset, c.p.pos.y * PIXEL + (PIXEL / 2) + ofset,
+			((c.p.pos.x * PIXEL + (PIXEL / 2)) + c.p.delta.x * PIXEL) + ofset, ((c.p.pos.y * PIXEL + (PIXEL / 2)) + c.p.delta.y * PIXEL) + ofset,
+			0x00DF349B);
 	mlx_put_image_to_window(c.mlx, c.window, img->img, 0, 0);
 	return (0);
 }
