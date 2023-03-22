@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tacikgoz <tacikgoz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:59:38 by tacikgoz          #+#    #+#             */
-/*   Updated: 2023/03/20 14:10:03 by tacikgoz         ###   ########.fr       */
+/*   Created: 2023/03/20 14:02:56 by tacikgoz          #+#    #+#             */
+/*   Updated: 2023/03/20 14:02:57 by tacikgoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_cub3d	*game;
-
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
-		return (0);
-	mlx_loop(game->mlx);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

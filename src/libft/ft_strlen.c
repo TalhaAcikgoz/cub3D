@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tacikgoz <tacikgoz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:59:38 by tacikgoz          #+#    #+#             */
-/*   Updated: 2023/03/20 14:10:03 by tacikgoz         ###   ########.fr       */
+/*   Created: 2023/03/20 14:03:54 by tacikgoz          #+#    #+#             */
+/*   Updated: 2023/03/20 14:03:55 by tacikgoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	t_cub3d	*game;
+	size_t	i;
 
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
-		return (0);
-	mlx_loop(game->mlx);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	printf("10 -> %zu", ft_strlen("1234567890"));
+}
+*/

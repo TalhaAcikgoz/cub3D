@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tacikgoz <tacikgoz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:59:38 by tacikgoz          #+#    #+#             */
-/*   Updated: 2023/03/20 14:10:03 by tacikgoz         ###   ########.fr       */
+/*   Created: 2023/03/20 14:02:09 by tacikgoz          #+#    #+#             */
+/*   Updated: 2023/03/20 14:02:10 by tacikgoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	t_cub3d	*game;
+	t_list	*new;
 
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
-		return (0);
-	mlx_loop(game->mlx);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	t_list *selam = ft_lstnew((void *)'y');
+
+	printf("%c", (char)(selam -> content));
+}
+*/

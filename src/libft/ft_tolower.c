@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tacikgoz <tacikgoz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:59:38 by tacikgoz          #+#    #+#             */
-/*   Updated: 2023/03/20 14:10:03 by tacikgoz         ###   ########.fr       */
+/*   Created: 2023/03/20 14:04:06 by tacikgoz          #+#    #+#             */
+/*   Updated: 2023/03/20 14:04:07 by tacikgoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	t_cub3d	*game;
-
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
-		return (0);
-	mlx_loop(game->mlx);
+	if (ft_isupper(c))
+		return (c + 32);
+	return (c);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	printf("'A' -> %c",ft_tolower('A'));
+}
+*/

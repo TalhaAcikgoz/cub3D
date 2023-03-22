@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tacikgoz <tacikgoz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:59:38 by tacikgoz          #+#    #+#             */
-/*   Updated: 2023/03/20 14:10:03 by tacikgoz         ###   ########.fr       */
+/*   Created: 2023/03/20 14:04:33 by tacikgoz          #+#    #+#             */
+/*   Updated: 2023/03/20 14:04:34 by tacikgoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
+#include "stdio.h"
 
-int	main(int argc, char **argv)
+int	ft_strrcmp(char *src, char *dest)
 {
-	t_cub3d	*game;
+	int	srci;
+	int	desti;
 
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
+	srci = ft_strlen(src) - ft_strlen(dest);
+	desti = 0;
+	if (srci <= 0)
 		return (0);
-	mlx_loop(game->mlx);
+	while (src[srci] && dest[desti])
+	{
+		if (src[srci] != dest[desti])
+			break ;
+		srci++;
+		desti++;
+	}
+	return (((unsigned char *)src)[srci] - ((unsigned char *)dest)[desti]);
 }

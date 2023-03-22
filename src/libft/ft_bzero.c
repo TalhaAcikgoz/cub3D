@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tacikgoz <tacikgoz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:59:38 by tacikgoz          #+#    #+#             */
-/*   Updated: 2023/03/20 14:10:03 by tacikgoz         ###   ########.fr       */
+/*   Created: 2023/03/20 14:00:20 by tacikgoz          #+#    #+#             */
+/*   Updated: 2023/03/20 14:00:21 by tacikgoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
-	t_cub3d	*game;
-
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
-		return (0);
-	mlx_loop(game->mlx);
+	while (n-- > 0)
+	{
+		*((unsigned char *)s) = 0;
+		s++;
+	}
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	deneme[6] = "ahmet";
+	printf("before : %s, ", deneme);
+	ft_bzero(deneme, sizeof(deneme));
+	printf("after : %s", deneme);
+}
+*/

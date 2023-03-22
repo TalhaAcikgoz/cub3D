@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tacikgoz <tacikgoz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 13:59:38 by tacikgoz          #+#    #+#             */
-/*   Updated: 2023/03/20 14:10:03 by tacikgoz         ###   ########.fr       */
+/*   Created: 2023/03/20 14:04:01 by tacikgoz          #+#    #+#             */
+/*   Updated: 2023/03/20 14:04:02 by tacikgoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_cub3d	*game;
+	char	*start;
 
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
-		return (0);
-	mlx_loop(game->mlx);
+	start = (char *)s;
+	while (*s)
+		s++;
+	while (s >= start)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s--;
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	*str = "deneme yazisi";
+	char	c = 'e';
+	printf("%s | %c -> %s", str, c, ft_strrchr(str, c));
+}
+*/
